@@ -1,5 +1,350 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  font-family: var(--main-font);
+  background-color: var(--bg-color);
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 10px;
+  position: relative;
+  z-index: 0;
+  height: 100vh;
+}
+
+.header-accent {
+  position: absolute;
+  top: 10px;
+  right: 19px;
+  font-size: 18px;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.header-accent::after {
+  content: '';
+  display: inline-block;
+  margin-left: 10px;
+  transform: translateY(-25%);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  box-shadow: 0px 0px 4px 2px var(--accent-color);
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  border: 1px solid var(--accent-color);
+  inline-size: 25px;
+  block-size: 25px;
+}
+
+.decorated-zone::before {
+  border-bottom: none;
+  border-left: none;
+  top: 10px;
+  right: 10px
+}
+
+.decorated-zone::after {
+  border-top: none;
+  border-right: none;
+  bottom: 10px;
+  left: 10px;
+}
+
+.header__theme-menu {
+  justify-self: right;
+  margin-top: 65px;
+}
+
+.header__theme-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header__theme-menu-button {
+  padding: 2px 13px;
+  inline-size: 70px;
+  block-size: 26px;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--accent-color);
+  text-transform: lowercase;
+}
+
+.header__theme-menu-button:hover {
+  border: 1px solid rgb(255 0 112 / 0.4);
+}
+
+.header__theme-menu-button:focus {
+  outline: none;
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--accent-color);
+  
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  border: 1px solid var(--accent-color);
+}
+
+.header-title {
+  font-weight: 800;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 0.9;
+  color: var(--header-title);
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__title-decor {
+  block-size: 117px;
+}
+
+.title-decor {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.28;
+  color: var(--title-decor-color);
+  background-color: var(--accent-color);
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 40px 10px 0;
+}
+
+.content-article {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.article-title {
+  font-size: 18px;
+  color: var(--accent-color);
+  line-height: 1.3;
+}
+
+.article-text {
+  margin-top: 10px;
+  font-size: 18px;
+  color: var(--main-text);
+  line-height: 1.3;
+}
+
+.article-link {
+  text-decoration: none;
+  text-shadow: 1px 1px 0 var(--accent-color);
+}
+
+.article-link:hover {
+  border-bottom: 1px solid var(--main-text);
+}
+
+.article-link:focus {
+  outline: none;
+}
+
+.article-link:focus-visible {
+  border: 1px solid var(--main-text);
+}
+
+.article-subtitle {
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+section article:last-of-type p:last-of-type {
+  margin-bottom: 51px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 0 10px 40px;
+}
+
+.gallery-img {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  position: relative;
+  block-size: 100vh;
+  /*margin-top: 40px;*/
+  padding: 0 13px;
+}
+
+p.header-title {
+  align-self: center;
+  justify-self: center;
+}
+
+@media (width >= 768px) {
+  .header {
+    padding: 20px 20px 0 0;
+  }
+  
+  .header-accent {
+    top: 20px;
+    right: 29px;
+  }
+
+  .decorated-zone::before {
+    top: 20px;
+    right: 20px;
+  }
+
+  .decorated-zone::after {
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .header__theme-menu {
+    margin-top: 172px;
+  }
+
+  .header-title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title-decor {
+    inline-size: 364px;
+    justify-self: right;
+  }
+
+  .articles {
+    padding: 60px 20px 0 20px;
+  }
+
+  .content-article {
+    grid-template-columns: 32% 32% 32%;
+  }
+
+  .article-title {
+    grid-column: 1 / auto;
+    grid-row: 1;
+  }
+
+  .article-subtitle-text {
+    grid-column: 2 / 4;
+  }
+
+  .article-subtitle-text-span {
+    grid-column: 2 / 4;
+  }
+
+  section article:last-of-type p:last-of-type {
+    margin-bottom: 80px;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 0 20px 60px;
+  }
+
+  .gallery-title {
+    grid-column: span 3;
+  }
+
+  .sunset {
+    grid-column: span 2;
+  }
+
+  .ice-cream {
+    grid-row: span 2;
+  }
+
+  .tape {
+    grid-row: span 2;
+  }
+
+  .street {
+    grid-column: span 2;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    padding: 20px 0;
+  }
+
+  .header__theme-menu {
+    justify-self: center;
+    align-self: top;
+    margin-top: 0;
+  }
+
+  .header__theme-menu-list {
+    flex-direction: row;
+  }
+  
+  .header-title {
+    padding-top: 150px;
+    align-self: bottom;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__title-decor {
+    align-self: bottom;
+    margin-right: 20px;
+    block-size: 71px;
+    inline-size: 491px;
+  }
+
+  .articles {
+    gap: 20px;
+    padding: 60px 20px 20px 20px;
+  }
+
+  .article-subtitle-text {
+    justify-self: right;
+  }
+
+  .article-subtitle-text-span {
+    grid-column: auto;
+    grid-row: 2;    
+  }
+
+  section article:last-of-type p:last-of-type {
+  margin-bottom: 60px;
+}
+
+  p.header-title {
+    padding: 0;
+  }
 }
