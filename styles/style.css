@@ -238,6 +238,7 @@ p.header-title {
   }
 
   .header__title-decor {
+    margin-bottom: 18px;
     inline-size: 364px;
     justify-self: right;
   }
@@ -247,7 +248,7 @@ p.header-title {
   }
 
   .content-article {
-    grid-template-columns: 32% 32% 32%;
+    grid-template-columns: 32.5% 1fr;
   }
 
   .article-title {
@@ -256,11 +257,12 @@ p.header-title {
   }
 
   .article-subtitle-text {
-    grid-column: 2 / 4;
+    grid-column: 2 / 3;
   }
 
   .article-subtitle-text-span {
-    grid-column: 2 / 4;
+    grid-column: span 3;
+    grid-row: auto;
   }
 
   section article:last-of-type p:last-of-type {
@@ -331,13 +333,17 @@ p.header-title {
     padding: 60px 20px 20px 20px;
   }
 
+  .content-article {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .article-subtitle-text {
-    justify-self: right;
+    grid-column: 2 / 4;
   }
 
   .article-subtitle-text-span {
     grid-column: auto;
-    grid-row: 2;    
+    grid-row: 2;
   }
 
   section article:last-of-type p:last-of-type {
