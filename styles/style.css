@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  font-family: var(--main-font);
+  font-family: var(--main-font), Arial, sans-serif;
   background-color: var(--bg-color);
   background-image: var(--bg-image);
   background-repeat: no-repeat;
@@ -17,9 +17,11 @@
   position: relative;
   z-index: 0;
   height: 100vh;
+  min-height: 668px;
 }
 
 .header-accent {
+  display: var(--header-accent);
   position: absolute;
   top: 10px;
   right: 19px;
@@ -45,7 +47,7 @@
 .decorated-zone::after {
   content: '';
   position: absolute;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--decor-color);
   inline-size: 25px;
   block-size: 25px;
 }
@@ -84,12 +86,13 @@
   font-family: inherit;
   font-size: 18px;
   line-height: 1;
-  color: var(--accent-color);
+  color: var(--decor-color);
   text-transform: lowercase;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid rgb(255 0 112 / 0.4);
+  border: 1px solid var(--decor-color-rgb);
 }
 
 .header__theme-menu-button:focus {
@@ -98,17 +101,17 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  border-bottom: 1px solid var(--accent-color);
+  border-bottom: 1px solid var(--decor-color);
   
 }
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--decor-color);
 }
 
 .header-title {
-  font-weight: 800;
+  font-weight: var(--font-weight);
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 0.9;
   color: var(--header-title);
@@ -116,13 +119,13 @@
 }
 
 .header__title-decor {
-  block-size: 117px;
+  inline-size: 355px;
 }
 
 .title-decor {
   font-size: 18px;
-  font-weight: 800;
-  line-height: 1.28;
+  font-weight: var(--font-weight);
+  line-height: 1.3;
   color: var(--title-decor-color);
   background-color: var(--accent-color);
 }
@@ -137,11 +140,12 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
+  margin-bottom: 51px;
 }
 
 .article-title {
   font-size: 18px;
-  color: var(--accent-color);
+  color: var(--decor-color);
   line-height: 1.3;
 }
 
@@ -169,16 +173,9 @@
   border: 1px solid var(--main-text);
 }
 
-.article-subtitle {
+.title-decor-no-bold {
+  --font-weight: 400;
   margin-top: 20px;
-  background-color: var(--accent-color);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-section article:last-of-type p:last-of-type {
-  margin-bottom: 51px;
 }
 
 .gallery {
@@ -200,11 +197,11 @@ section article:last-of-type p:last-of-type {
   grid-template-columns: 1fr;
   position: relative;
   block-size: 100vh;
-  /*margin-top: 40px;*/
   padding: 0 13px;
+  min-height: 668px;
 }
 
-p.header-title {
+h2.header-title {
   align-self: center;
   justify-self: center;
 }
@@ -249,6 +246,7 @@ p.header-title {
 
   .content-article {
     grid-template-columns: 32.5% 1fr;
+    margin-bottom: 80px;
   }
 
   .article-title {
@@ -265,10 +263,6 @@ p.header-title {
     grid-row: auto;
   }
 
-  section article:last-of-type p:last-of-type {
-    margin-bottom: 80px;
-  }
-
   .gallery {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -279,19 +273,19 @@ p.header-title {
     grid-column: span 3;
   }
 
-  .sunset {
+  .gallery-img:nth-child(2) {
     grid-column: span 2;
   }
 
-  .ice-cream {
+  .gallery-img:nth-child(3) {
     grid-row: span 2;
   }
 
-  .tape {
+  .gallery-img:nth-child(4) {
     grid-row: span 2;
   }
 
-  .street {
+  .gallery-img:nth-child(6) {
     grid-column: span 2;
   }
 
@@ -316,15 +310,11 @@ p.header-title {
   }
   
   .header-title {
-    padding-top: 150px;
-    align-self: bottom;
-    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    padding-top: 170px;
   }
 
   .header__title-decor {
-    align-self: bottom;
     margin-right: 20px;
-    block-size: 71px;
     inline-size: 491px;
   }
 
@@ -335,22 +325,27 @@ p.header-title {
 
   .content-article {
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-auto-flow: row;
+    margin-bottom: 60px;;
   }
 
-  .article-subtitle-text {
-    grid-column: 2 / 4;
+  .article-title-span {
+    grid-column: 1 / -1;
+    inline-size: 32.5%;
   }
 
   .article-subtitle-text-span {
     grid-column: auto;
-    grid-row: 2;
+    grid-row: auto;
   }
 
-  section article:last-of-type p:last-of-type {
-  margin-bottom: 60px;
-}
+  .article-subtitle-text {
+    grid-column: 2 / 4;
+    grid-row: auto;
+  }
 
-  p.header-title {
+  h2.header-title {
     padding: 0;
   }
 }
